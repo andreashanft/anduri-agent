@@ -1,0 +1,8 @@
+{
+  "type": "hello",
+  "protocol": 1,
+  "deviceId": "6F9619FF-8B86-D011-B42D-00C04FC964FF",
+  "token": "ZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXp7fH1-f4CBgoM",
+  "interval": 1,
+  "history": true
+}

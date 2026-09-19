@@ -1,0 +1,58 @@
+# Anduri agent as a systemd service.
+#
+#   sudo install -m 0755 anduri-agent /usr/local/bin/anduri-agent
+#   sudo install -D -m 0600 config.example.json /etc/anduri-agent/config.json   # optional
+#   sudo install -m 0644 anduri-agent.service /etc/systemd/system/
+#   sudo systemctl daemon-reload && sudo systemctl enable --now anduri-agent
+#   journalctl -u anduri-agent -f        # pairing codes show up here
+#
+# It runs as root because RAPL energy counters (cpu.power) and liquidctl's USB devices are root-only by
+# default, but with every capability dropped and the file system read-only apart from its state directory.
+# See the README for running it as an unprivileged user instead.
+
+[Unit]
+Description=Anduri agent (streams PC sensors to the Anduri iPad app)
+Wants=network-online.target
+After=network-online.target avahi-daemon.service coolercontrold.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/anduri-agent run
+# The agent reads /etc/anduri-agent/config.json when it exists; pass --config to use another file.
+# ~/.config/anduri-agent/config.json in a user's home is NOT read: ProtectHome hides /home and HOME is the state directory.
+
+# /var/lib/anduri-agent: agent id, certificate and paired devices. The agent finds it via $STATE_DIRECTORY.
+StateDirectory=anduri-agent
+StateDirectoryMode=0700
+Environment=HOME=/var/lib/anduri-agent
+Environment=DOTNET_NOLOGO=1
+
+Restart=on-failure
+RestartSec=5s
+# The agent closes WebSocket sessions with 1001 on SIGTERM.
+TimeoutStopSec=15s
+
+# Hardening. No capabilities are needed: port 48123 is unprivileged and root reads its own 0400 sysfs files without them.
+CapabilityBoundingSet=
+AmbientCapabilities=
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+ProtectKernelModules=yes
+ProtectKernelLogs=yes
+ProtectControlGroups=yes
+ProtectClock=yes
+ProtectHostname=yes
+RestrictNamespaces=yes
+RestrictRealtime=yes
+RestrictSUIDSGID=yes
+LockPersonality=yes
+SystemCallArchitectures=native
+# AF_UNIX for the Avahi/D-Bus socket, AF_NETLINK for network interface enumeration.
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX AF_NETLINK
+# No MemoryDenyWriteExecute: the .NET JIT needs executable memory.
+# No PrivateDevices: NVML needs /dev/nvidia*, liquidctl needs /dev/hidraw* and USB devices.
+
+[Install]
+WantedBy=multi-user.target

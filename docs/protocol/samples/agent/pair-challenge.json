@@ -1,0 +1,11 @@
+{
+  "type": "pair.challenge",
+  "nonce": "AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=",
+  "expiresIn": 120,
+  "agent": {
+    "id": "0B7A1E6C-3D52-4C1F-9A0E-2F5D8C7B6A41",
+    "name": "RIG-01",
+    "version": "1.1.0",
+    "os": "linux"
+  }
+}

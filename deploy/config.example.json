@@ -1,0 +1,67 @@
+{
+  // Every setting is optional. Command-line flags (--name, --port, --state-dir, --simulate, --discovery) override these.
+
+  // Name shown on the iPad. Default: the host name.
+  "name": "RIG-01",
+  "port": 48123,
+
+  // Default: $STATE_DIRECTORY (systemd), $XDG_STATE_HOME/anduri-agent or ~/.local/state/anduri-agent.
+  // "stateDir": "/var/lib/anduri-agent",
+
+  // auto (Avahi on Linux, dns-sd on macOS, else built-in responder), avahi, dns-sd, managed or off.
+  "discovery": "auto",
+
+  "simulate": false,
+
+  // Turn individual sensor sources off. Sources that find no hardware turn themselves off.
+  "sources": {
+    "cpu": true,
+    "memory": true,
+    "nvidia": true,
+    // GPU hotspot through NvAPI, an undocumented NVIDIA interface.
+    "nvApi": true,
+    "aquacomputer": true,
+    "hwmon": true,
+    "coolerControl": true,
+    "liquidctl": true,
+    "drives": true,
+    "network": true
+  },
+
+  "coolerControl": {
+    "url": "http://127.0.0.1:11987",
+    // CoolerControl 4.0+: create a read-only access token under Access Protection (preferred) …
+    "token": null,
+    // … or give the CCAdmin password.
+    "username": "CCAdmin",
+    "password": null,
+    // Also report CoolerControl's CPU, GPU and hwmon devices, which the agent otherwise reads directly.
+    "includeAllDevices": false,
+    "allowSelfSignedCertificate": true
+  },
+
+  // Only polled while CoolerControl isn't reachable.
+  "liquidctl": {
+    "path": "liquidctl",
+    "interval": 5
+  },
+
+  "drives": {
+    // Non-empty: only these mount points. "/mnt/*" matches everything below /mnt.
+    "include": [],
+    "exclude": ["/boot", "/boot/efi", "/efi"]
+  },
+
+  "network": {
+    // Default: the interface of the default route.
+    "interface": null
+  },
+
+  // Per-sensor overrides keyed by the sensor id the agent reports.
+  "sensors": {
+    "fan.nct6799.2": { "name": "CPU fan", "label": "CPU fan", "shortLabel": "CPU" },
+    // An Octo or Quadro has no dedicated coolant sensor, so say which input it is.
+    "temp.octo.1": { "id": "loop.coolant", "label": "Water" },
+    "temp.nct6799.7": { "hidden": true }
+  }
+}

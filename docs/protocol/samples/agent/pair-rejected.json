@@ -1,0 +1,5 @@
+{
+  "type": "pair.rejected",
+  "reason": "wrong_code",
+  "attemptsLeft": 4
+}

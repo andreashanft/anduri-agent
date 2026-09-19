@@ -1,0 +1,15 @@
+{
+  "type": "snapshot",
+  "t": 1758040000.5,
+  "values": {
+    "cpu.load": 3.4,
+    "cpu.temp": 41.8,
+    "gpu.temp": 30.0,
+    "gpu.clock": 210,
+    "mem.ram": 5.7,
+    "loop.flow": 79.2,
+    "fan.nct6799.2": 712,
+    "drive.root": 412.3,
+    "net.down": 11500000
+  }
+}

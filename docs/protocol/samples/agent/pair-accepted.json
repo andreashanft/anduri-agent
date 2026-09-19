@@ -1,0 +1,11 @@
+{
+  "type": "pair.accepted",
+  "token": "ZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXp7fH1-f4CBgoM",
+  "proof": "Czj2yIf94VLEmLb8jApPznsmaFagIBWx6LdMenDtGPk=",
+  "agent": {
+    "id": "0B7A1E6C-3D52-4C1F-9A0E-2F5D8C7B6A41",
+    "name": "RIG-01",
+    "version": "1.1.0",
+    "os": "linux"
+  }
+}

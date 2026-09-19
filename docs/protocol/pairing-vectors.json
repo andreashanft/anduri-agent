@@ -1,0 +1,13 @@
+{
+  "description": "HMAC-SHA256 pairing proofs. Key: UTF-8 code. Message: UTF-8 label, then nonce bytes, fingerprint bytes, UTF-8 device id.",
+  "code": "481207",
+  "nonce": "AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=",
+  "fingerprint": "3e584012d24fef738718c039a9adcebc8beabb2f9efebe7dcbf030146a21925c",
+  "deviceId": "6F9619FF-8B86-D011-B42D-00C04FC964FF",
+  "clientProof": "OA21Rn6KIinMF5zou5dzy9Qud5HngccpUt+WpmTFc8w=",
+  "agentProof": "Czj2yIf94VLEmLb8jApPznsmaFagIBWx6LdMenDtGPk=",
+  "wrongCode": "481208",
+  "wrongCodeClientProof": "G6AjwIexpR6ZObdGQQidcm9eTUboc3FmB5dxK5wnufU=",
+  "token": "ZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXp7fH1-f4CBgoM",
+  "tokenHash": "e3e16780becf601d55e4751e7d722ef91d750bb0cea61b1bb5ea8bc308cdf262"
+}

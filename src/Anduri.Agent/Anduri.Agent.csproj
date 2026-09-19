@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>anduri-agent</AssemblyName>
+    <RootNamespace>Anduri.Agent</RootNamespace>
+    <!-- NVML is called through source-generated P/Invoke. -->
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <!-- Reflection-based JSON is off: every type goes through a source-generated context. -->
+    <JsonSerializerIsReflectionEnabledByDefault>false</JsonSerializerIsReflectionEnabledByDefault>
+    <!-- No web root: keeps the publish output to the single executable. -->
+    <StaticWebAssetsEnabled>false</StaticWebAssetsEnabled>
+    <!-- A small background service: workstation GC keeps the memory footprint low. -->
+    <ServerGarbageCollection>false</ServerGarbageCollection>
+    <ConcurrentGarbageCollection>false</ConcurrentGarbageCollection>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Anduri.Agent.Tests" />
+  </ItemGroup>
+
+</Project>

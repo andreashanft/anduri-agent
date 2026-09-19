@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Anduri.Agent/Anduri.Agent.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Anduri.Agent.Tests/Anduri.Agent.Tests.csproj" />
+  </Folder>
+</Solution>

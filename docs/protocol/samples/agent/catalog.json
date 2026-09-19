@@ -1,0 +1,80 @@
+{
+  "type": "catalog",
+  "sensors": [
+    {
+      "id": "cpu.load",
+      "name": "CPU load",
+      "kind": "load",
+      "unit": "%",
+      "hardware": "AMD Ryzen 9 7950X3D",
+      "label": "CPU",
+      "detail": "16 cores · 32 threads"
+    },
+    {
+      "id": "cpu.temp",
+      "name": "CPU package temperature",
+      "kind": "temperature",
+      "unit": "°C",
+      "hardware": "AMD Ryzen 9 7950X3D",
+      "label": "Package"
+    },
+    {
+      "id": "gpu.temp",
+      "name": "GPU core temperature",
+      "kind": "temperature",
+      "unit": "°C",
+      "hardware": "NVIDIA GeForce RTX 4090",
+      "label": "Core"
+    },
+    {
+      "id": "gpu.clock",
+      "name": "GPU core clock",
+      "kind": "frequency",
+      "unit": "MHz",
+      "hardware": "NVIDIA GeForce RTX 4090",
+      "label": "Core",
+      "maximum": 2520
+    },
+    {
+      "id": "mem.ram",
+      "name": "System memory used",
+      "kind": "memory",
+      "unit": "GB",
+      "label": "System",
+      "capacity": 31.2
+    },
+    {
+      "id": "loop.flow",
+      "name": "Coolant flow",
+      "kind": "flow",
+      "unit": "l/h",
+      "hardware": "Aquacomputer Octo",
+      "label": "Flow"
+    },
+    {
+      "id": "fan.nct6799.2",
+      "name": "CPU fan",
+      "kind": "rpm",
+      "unit": "rpm",
+      "hardware": "Nuvoton NCT6799D",
+      "label": "CPU fan",
+      "shortLabel": "CPU"
+    },
+    {
+      "id": "drive.root",
+      "name": "System",
+      "kind": "storage",
+      "unit": "GB",
+      "label": "/",
+      "capacity": 953.9
+    },
+    {
+      "id": "net.down",
+      "name": "Download",
+      "kind": "network",
+      "unit": "B/s",
+      "label": "Down",
+      "detail": "2.5 GbE"
+    }
+  ]
+}
