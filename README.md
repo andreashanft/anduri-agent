@@ -271,6 +271,7 @@ anduri-agent/
   Directory.Build.props             net10.0, nullable, warnings as errors
   deploy/                           systemd unit, example config
   docs/                             the wire protocol, its sample messages and pairing vectors
+    reference/                    output captured from other tools (HWiNFO's JSON), for sources still to come
   src/Anduri.Agent/
     Cli/                            command line
     Configuration/                  config file model and loader

@@ -1,0 +1,23 @@
+{
+  "hwinfo":
+  {
+    "version": 1,
+    "busy": 0,
+    "lastUpdate": 1337281,
+    "data":
+    [
+      {
+        "sensorId": 1,
+        "value": 15.0,
+        "name": "GPU Hotspot",
+        "unit": "°C"
+      },
+      {
+        "sensorId": 2,
+        "value": 102.0,
+        "name": "GPU Temp",
+        "unit": "°C"
+      }
+    ]
+  }
+}
